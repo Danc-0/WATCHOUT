@@ -1,4 +1,4 @@
-package com.danc.watchout.ui.theme
+package com.danc.watchout.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

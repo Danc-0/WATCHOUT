@@ -1,4 +1,4 @@
-package com.danc.watchout
+package com.danc.watchout.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.danc.watchout.ui.theme.WATCHOUTTheme
+import com.danc.watchout.presentation.ui.theme.WATCHOUTTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
