@@ -16,7 +16,7 @@
         android:theme="@style/Theme.WATCHOUT"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.WATCHOUT">
@@ -30,6 +30,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.WATCHOUT" />
     </application>
 
 </manifest>

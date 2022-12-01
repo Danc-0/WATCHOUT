@@ -7,14 +7,11 @@ import androidx.navigation.compose.composable
 import com.danc.watchout.presentation.screens.*
 
 @Composable
-fun NavigationGraph(navController: NavHostController) {
+fun MainNavigationGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = ScreenRoutes.Splash.route
+        startDestination = ScreenRoutes.Home.route
     ) {
-        composable(route = ScreenRoutes.Splash.route) {
-            SplashScreen(navController = navController)
-        }
         composable(route = ScreenRoutes.Home.route) {
             HomeScreen(navController = navController)
         }

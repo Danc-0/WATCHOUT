@@ -3,16 +3,17 @@ package com.danc.watchout.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.danc.watchout.presentation.navigation.MainNavigationGraph
 import com.danc.watchout.presentation.ui.components.BottomAppBarComponent
 import com.danc.watchout.presentation.ui.theme.WATCHOUTTheme
-import com.danc.watchout.presentation.navigation.NavigationGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,7 +50,7 @@ fun MainComponent(scaffoldState: ScaffoldState, navHostController: NavHostContro
             modifier = Modifier
                 .padding(paddingValues = contentPadding)
         ) {
-            NavigationGraph(navController = navHostController)
+            MainNavigationGraph(navController = navHostController)
         }
     }
 }
