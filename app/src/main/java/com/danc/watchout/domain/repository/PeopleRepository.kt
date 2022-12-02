@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PeopleRepository {
 
-    suspend fun getAllPeople(): Flow<Resource<Peoples>>
+    suspend fun getAllPeople(pageNo: Int): Peoples
 
 }

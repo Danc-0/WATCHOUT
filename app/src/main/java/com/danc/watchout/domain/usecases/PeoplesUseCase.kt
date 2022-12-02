@@ -8,8 +8,8 @@ import javax.inject.Inject
 
 class PeoplesUseCase @Inject constructor (private val peopleRepository: PeopleRepository) {
 
-     suspend operator fun invoke(): Flow<Resource<Peoples>> {
-        return peopleRepository.getAllPeople()
+     suspend operator fun invoke(pageNo: Int): Peoples {
+        return peopleRepository.getAllPeople(pageNo)
     }
 
 }

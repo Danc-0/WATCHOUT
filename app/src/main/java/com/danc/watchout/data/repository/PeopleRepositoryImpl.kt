@@ -1,5 +1,6 @@
 package com.danc.watchout.data.repository
 
+import android.util.Log
 import com.danc.watchout.data.remote.StarWarsAPI
 import com.danc.watchout.domain.models.Peoples
 import com.danc.watchout.domain.repository.PeopleRepository
@@ -11,16 +12,14 @@ import retrofit2.HttpException
 
 class PeopleRepositoryImpl(private val starWarsAPI: StarWarsAPI) : PeopleRepository {
 
-    override suspend fun getAllPeople(): Flow<Resource<Peoples>> = flow {
-        emit(Resource.Loading())
+    override suspend fun getAllPeople(pageNo: Int): Peoples  {
         try {
-            val response = starWarsAPI.getPeople().toPeoplesResult()
-            emit(Resource.Success(response))
+            val response = starWarsAPI.getPeople(pageNo).toPeoplesResult()
+            Log.d("TAG", "getAllPeople: ${response.results}")
+            return response
 
         } catch (exception: HttpException) {
-            emit(Resource.Error("Oops. Something went wrong. Try again later"))
-        } catch (exception: IOException) {
-            emit(Resource.Error("Check your internet connection and Try Again"))
+            throw exception
         }
     }
 }

@@ -81,7 +81,7 @@ fun RowScope.SingleBottomAppItem(
             .background(background)
             .clickable(
                 onClick = {
-                    navController.navigate(screenRoutes.route) {
+                     navController.navigate(screenRoutes.route) {
                         popUpTo(navController.graph.findStartDestination().id)
                         launchSingleTop = true
                     }
