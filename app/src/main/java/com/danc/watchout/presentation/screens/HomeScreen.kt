@@ -24,6 +24,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.danc.watchout.R
 import com.danc.watchout.presentation.navigation.MainAppRoutes
+import com.danc.watchout.presentation.ui.components.ErrorItemComponent
 import com.danc.watchout.presentation.ui.components.SinglePersonComponent
 import com.danc.watchout.presentation.viewmodels.PeopleViewModel
 
@@ -34,7 +35,7 @@ fun HomeScreen(navController: NavController, viewModel: PeopleViewModel) {
 
     Scaffold(
         scaffoldState = scaffoldState,
-    ) { it ->
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -92,7 +93,7 @@ fun HomeScreen(navController: NavController, viewModel: PeopleViewModel) {
 
                         is LoadState.Error -> {
                             item {
-                                ErrorItem(message = "Unknown Error Occurred")
+                                ErrorItemComponent(message = "Unknown Error Occurred")
                             }
                         }
                     }
@@ -108,7 +109,7 @@ fun HomeScreen(navController: NavController, viewModel: PeopleViewModel) {
 
                         is LoadState.Error -> {
                             item {
-                                ErrorItem(message = state.error.message ?: "")
+                                ErrorItemComponent(message = state.error.message ?: "")
                             }
                         }
                     }
@@ -124,7 +125,7 @@ fun HomeScreen(navController: NavController, viewModel: PeopleViewModel) {
 
                         is LoadState.Error -> {
                             item {
-                                ErrorItem(message = state.error.message ?: "")
+                                ErrorItemComponent(message = state.error.message ?: "")
                             }
                         }
                     }
@@ -155,38 +156,3 @@ fun LoadingItem() {
     }
 }
 
-@Composable
-fun ErrorItem(message: String) {
-    Card(
-        elevation = 2.dp,
-        modifier = Modifier
-            .padding(6.dp)
-            .fillMaxWidth()
-            .wrapContentHeight()
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.Red)
-                .padding(8.dp)
-        ) {
-            Image(
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .width(42.dp)
-                    .height(42.dp),
-                painter = painterResource(id = R.drawable.warning),
-                contentDescription = "",
-                colorFilter = ColorFilter.tint(Color.White)
-            )
-            Text(
-                color = Color.White,
-                text = message,
-                fontSize = 16.sp,
-                modifier = Modifier
-                    .padding(start = 12.dp)
-                    .align(CenterVertically)
-            )
-        }
-    }
-}

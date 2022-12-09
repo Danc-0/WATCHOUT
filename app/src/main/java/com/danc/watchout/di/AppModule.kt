@@ -1,7 +1,9 @@
 package com.danc.watchout.di
 
 import com.danc.watchout.data.remote.StarWarsAPI
+import com.danc.watchout.data.repository.FilmRepositoryImpl
 import com.danc.watchout.data.repository.PeopleRepositoryImpl
+import com.danc.watchout.domain.repository.FilmRepository
 import com.danc.watchout.domain.repository.PeopleRepository
 import com.danc.watchout.domain.usecases.PeoplesUseCase
 import com.danc.watchout.domain.usecases.SpecificFilmUseCase
@@ -36,6 +38,12 @@ object AppModule {
     @Singleton
     fun providePeopleRepository(starWarsAPI: StarWarsAPI): PeopleRepository {
         return PeopleRepositoryImpl(starWarsAPI)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilmsRepository(starWarsAPI: StarWarsAPI): FilmRepository {
+        return FilmRepositoryImpl(starWarsAPI)
     }
 
     private val httpLoggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

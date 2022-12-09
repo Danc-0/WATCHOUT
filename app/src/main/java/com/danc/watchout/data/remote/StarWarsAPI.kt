@@ -12,7 +12,7 @@ interface StarWarsAPI {
         @Query("page") pageNo: Int
     ): People
 
-    @GET("/films/")
+    @GET("films/")
     suspend fun getFilms(): Films
 
     @GET

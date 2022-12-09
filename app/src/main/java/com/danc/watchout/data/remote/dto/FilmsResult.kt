@@ -1,6 +1,7 @@
 package com.danc.watchout.data.remote.dto
 
 import com.danc.watchout.domain.models.SpecificFilmResult
+import com.danc.watchout.domain.models.FilmsResult
 import com.google.gson.annotations.SerializedName
 
 data class FilmsResult(
@@ -32,5 +33,22 @@ data class FilmsResult(
             openingCrawl = openingCrawl,
             releaseDate = releaseDate
         )
+    }
+
+    fun toFilmsResult(): FilmsResult {
+       return FilmsResult(
+           characters,
+           created,
+           director,
+           edited,
+           openingCrawl,
+           planets,
+           producer,
+           releaseDate,
+           species,
+           starships,
+           title,
+           vehicles
+       )
     }
 }
