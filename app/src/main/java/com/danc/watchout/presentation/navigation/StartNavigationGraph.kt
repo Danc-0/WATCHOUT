@@ -10,9 +10,9 @@ import com.danc.watchout.presentation.screens.*
 fun StartNavigationGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = ScreenRoutes.Splash.route
+        startDestination = BottomNavRoutes.Splash.route
     ) {
-        composable(route = ScreenRoutes.Splash.route) {
+        composable(route = BottomNavRoutes.Splash.route) {
             SplashScreen(navController = navController)
         }
     }

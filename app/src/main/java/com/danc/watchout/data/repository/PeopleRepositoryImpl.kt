@@ -1,8 +1,8 @@
 package com.danc.watchout.data.repository
 
-import android.util.Log
 import com.danc.watchout.data.remote.StarWarsAPI
 import com.danc.watchout.domain.models.Peoples
+import com.danc.watchout.domain.models.SpecificFilmResult
 import com.danc.watchout.domain.repository.PeopleRepository
 import com.danc.watchout.utils.Resource
 import kotlinx.coroutines.flow.Flow
@@ -14,12 +14,30 @@ class PeopleRepositoryImpl(private val starWarsAPI: StarWarsAPI) : PeopleReposit
 
     override suspend fun getAllPeople(pageNo: Int): Peoples  {
         try {
-            val response = starWarsAPI.getPeople(pageNo).toPeoplesResult()
-            Log.d("TAG", "getAllPeople: ${response.results}")
-            return response
+            return starWarsAPI.getPeople(pageNo).toPeoplesResult()
 
         } catch (exception: HttpException) {
             throw exception
         }
+    }
+
+    override suspend fun getSpecificFilm(url: String): Flow<Resource<SpecificFilmResult>> = flow {
+        emit(Resource.Loading())
+        try {
+            emit(Resource.Success(starWarsAPI.getSpecificFilms(url).toSpecificFilmResult()))
+        } catch (exception: HttpException){
+            emit(
+                Resource.Error(
+                    message = "Oops, Something went wrong try again later."
+                )
+            )
+        }  catch (ioException: IOException){
+            emit(
+                Resource.Error(
+                    message = "Check your internet connection"
+                )
+            )
+        }
+
     }
 }

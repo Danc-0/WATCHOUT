@@ -4,8 +4,6 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.BottomAppBar
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -14,22 +12,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.danc.watchout.R
-import com.danc.watchout.presentation.navigation.ScreenRoutes
+import com.danc.watchout.presentation.navigation.BottomNavRoutes
 
 @Composable
 fun BottomAppBarComponent(
@@ -37,10 +29,10 @@ fun BottomAppBarComponent(
     navController: NavHostController
 ) {
     val screens = listOf(
-        ScreenRoutes.Home,
-        ScreenRoutes.Film,
-        ScreenRoutes.Vehicle,
-        ScreenRoutes.StarShip,
+        BottomNavRoutes.Home,
+        BottomNavRoutes.Film,
+        BottomNavRoutes.Vehicle,
+        BottomNavRoutes.StarShip,
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -55,7 +47,7 @@ fun BottomAppBarComponent(
     ) {
         screens.forEach { screen ->
             SingleBottomAppItem(
-                screenRoutes = screen,
+                bottomNavRoutes = screen,
                 currentDestination = currentDestination,
                 navController = navController
             )
@@ -65,11 +57,11 @@ fun BottomAppBarComponent(
 
 @Composable
 fun RowScope.SingleBottomAppItem(
-    screenRoutes: ScreenRoutes,
+    bottomNavRoutes: BottomNavRoutes,
     currentDestination: NavDestination?,
     navController: NavHostController
 ) {
-    val selected = currentDestination?.hierarchy?.any { it.route == screenRoutes.route } == true
+    val selected = currentDestination?.hierarchy?.any { it.route == bottomNavRoutes.route } == true
     val background =
         if (selected) MaterialTheme.colors.onBackground else MaterialTheme.colors.background
     val contentColor =
@@ -81,7 +73,7 @@ fun RowScope.SingleBottomAppItem(
             .background(background)
             .clickable(
                 onClick = {
-                     navController.navigate(screenRoutes.route) {
+                     navController.navigate(bottomNavRoutes.route) {
                         popUpTo(navController.graph.findStartDestination().id)
                         launchSingleTop = true
                     }
@@ -95,14 +87,14 @@ fun RowScope.SingleBottomAppItem(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Icon(
-                painter = painterResource(id = if (selected) screenRoutes.icon_focused else screenRoutes.icon),
+                painter = painterResource(id = if (selected) bottomNavRoutes.icon_focused else bottomNavRoutes.icon),
                 contentDescription = "icon",
                 tint = contentColor,
                 modifier = Modifier.padding(end = 15.dp)
             )
             AnimatedVisibility(visible = selected) {
                 Text(
-                    text = screenRoutes.title,
+                    text = bottomNavRoutes.title,
                     style = TextStyle(
                         color = contentColor,
                         fontWeight = FontWeight.Bold

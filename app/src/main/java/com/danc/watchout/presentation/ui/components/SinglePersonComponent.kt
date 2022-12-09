@@ -2,6 +2,7 @@ package com.danc.watchout.presentation.ui.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -18,7 +19,8 @@ import com.danc.watchout.domain.models.PeoplesResult
 @Composable
 fun SinglePersonComponent(
     person: PeoplesResult,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClickedItem: () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -26,6 +28,9 @@ fun SinglePersonComponent(
             .border(
                 border = BorderStroke(width = 1.dp, color = MaterialTheme.colors.onSurface),
                 shape = RoundedCornerShape(10.dp)
+            )
+            .clickable(
+                onClick = onClickedItem
             )
     ) {
         Column(modifier = modifier.padding(10.dp)){

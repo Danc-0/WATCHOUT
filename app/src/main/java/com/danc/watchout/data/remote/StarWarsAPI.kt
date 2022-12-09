@@ -3,6 +3,7 @@ package com.danc.watchout.data.remote
 import com.danc.watchout.data.remote.dto.*
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 interface StarWarsAPI {
 
@@ -13,6 +14,9 @@ interface StarWarsAPI {
 
     @GET("/films/")
     suspend fun getFilms(): Films
+
+    @GET
+    suspend fun getSpecificFilms(@Url filmUrl: String): FilmsResult
 
     @GET("/vehicles/")
     suspend fun getVehicles(): Vehicles

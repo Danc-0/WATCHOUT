@@ -8,8 +8,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
@@ -21,17 +19,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.danc.watchout.R
+import com.danc.watchout.presentation.navigation.MainAppRoutes
 import com.danc.watchout.presentation.ui.components.SinglePersonComponent
 import com.danc.watchout.presentation.viewmodels.PeopleViewModel
 
 @Composable
-fun HomeScreen(navController: NavController) {
-    val viewModel: PeopleViewModel = hiltViewModel()
+fun HomeScreen(navController: NavController, viewModel: PeopleViewModel) {
     val peopleList = viewModel.peoples.collectAsLazyPagingItems()
     val scaffoldState = rememberScaffoldState()
 
@@ -73,7 +70,15 @@ fun HomeScreen(navController: NavController) {
                 ) {
 
                     items(peopleList.itemCount) { item ->
-                        peopleList[item]?.let { people -> SinglePersonComponent(person = people) }
+                        peopleList[item]?.let { people ->
+                            SinglePersonComponent(
+                                person = people,
+                                onClickedItem = {
+                                    viewModel.peopleDetails(people)
+                                    navController.navigate(MainAppRoutes.PeopleDetails.route)
+                                }
+                            )
+                        }
                     }
 
                     when (peopleList.loadState.prepend) {
@@ -170,7 +175,7 @@ fun ErrorItem(message: String) {
                     .clip(CircleShape)
                     .width(42.dp)
                     .height(42.dp),
-                painter = painterResource(id = R.drawable.vehicle),
+                painter = painterResource(id = R.drawable.warning),
                 contentDescription = "",
                 colorFilter = ColorFilter.tint(Color.White)
             )

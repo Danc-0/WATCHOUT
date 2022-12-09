@@ -1,5 +1,6 @@
 package com.danc.watchout.presentation.viewmodels
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -18,11 +19,18 @@ class PeopleViewModel @Inject constructor(
     private val peoplesUseCase: PeoplesUseCase
 ) : ViewModel() {
 
+    var peopleResult = mutableStateOf<PeoplesResult?>(null)
+    private set
+
     val peoples: Flow<PagingData<PeoplesResult>> = Pager(
         pagingSourceFactory = {
             PeopleDataSource(peoplesUseCase)
         },
         config = PagingConfig(pageSize = 20)
     ).flow.cachedIn(viewModelScope)
+
+    fun peopleDetails(peoplesResult: PeoplesResult){
+        this.peopleResult.value = peoplesResult
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.danc.watchout.data.remote.dto
 
+import com.danc.watchout.domain.models.SpecificFilmResult
 import com.google.gson.annotations.SerializedName
 
 data class FilmsResult(
@@ -20,4 +21,16 @@ data class FilmsResult(
     val title: String,
     val url: String,
     val vehicles: List<String>
-)
+) {
+    fun toSpecificFilmResult(): SpecificFilmResult {
+        return SpecificFilmResult(
+            title = title,
+            created = created,
+            director = director,
+            producer = producer,
+            edited = edited,
+            openingCrawl = openingCrawl,
+            releaseDate = releaseDate
+        )
+    }
+}

@@ -25,7 +25,6 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.danc.watchout.R
 import com.danc.watchout.presentation.MainActivity
-import com.danc.watchout.presentation.navigation.ScreenRoutes
 
 @Composable
 fun SplashScreen(navController: NavController) {
