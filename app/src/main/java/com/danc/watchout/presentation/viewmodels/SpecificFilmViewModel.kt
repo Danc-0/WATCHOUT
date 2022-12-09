@@ -21,7 +21,6 @@ import javax.inject.Inject
 @HiltViewModel
 class SpecificFilmViewModel @Inject constructor(
     private val specificFilmUseCase: SpecificFilmUseCase,
-    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private var filmList: ArrayList<SpecificFilmResult> = ArrayList()
 

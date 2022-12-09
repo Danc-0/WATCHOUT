@@ -20,7 +20,7 @@ class FilmsDataSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, FilmsResult> {
        return try {
             val nextPageNumber = params.key ?: 1
-            val response = filmsUseCase()
+            val response = filmsUseCase(nextPageNumber)
             LoadResult.Page(
                 data = response.results,
                 prevKey = if (response.previous != null) nextPageNumber - 1 else null,

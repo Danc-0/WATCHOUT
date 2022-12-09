@@ -7,9 +7,9 @@ import retrofit2.HttpException
 
 class FilmRepositoryImpl (private val starWarsAPI: StarWarsAPI): FilmRepository {
 
-    override suspend fun getAllFilms(): Films {
+    override suspend fun getAllFilms(pageNumber: Int): Films {
         try {
-            return starWarsAPI.getFilms().toFilms()
+            return starWarsAPI.getFilms(pageNumber).toFilms()
         } catch (exception: HttpException){
             throw exception
         }

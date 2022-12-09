@@ -1,5 +1,7 @@
 package com.danc.watchout.data.remote.dto
 
+import com.danc.watchout.domain.models.VehiclesResult
+
 data class VehiclesResult(
     val cargo_capacity: String,
     val consumables: String,
@@ -17,4 +19,22 @@ data class VehiclesResult(
     val pilots: List<String>,
     val url: String,
     val vehicle_class: String
-)
+) {
+    fun toVehicleResult(): VehiclesResult {
+        return VehiclesResult(
+            cargo_capacity,
+            consumables,
+            cost_in_credits,
+            created, crew,
+            films,
+            length,
+            manufacturer,
+            max_atmosphering_speed,
+            model,
+            name,
+            passengers,
+            pilots,
+            vehicle_class
+        )
+    }
+}

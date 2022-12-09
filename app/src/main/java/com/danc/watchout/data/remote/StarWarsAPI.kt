@@ -13,21 +13,31 @@ interface StarWarsAPI {
     ): People
 
     @GET("films/")
-    suspend fun getFilms(): Films
+    suspend fun getFilms(
+        @Query("page") pageNo: Int
+    ): Films
 
     @GET
     suspend fun getSpecificFilms(@Url filmUrl: String): FilmsResult
 
     @GET("vehicles/")
-    suspend fun getVehicles(): Vehicles
+    suspend fun getVehicles(
+        @Query("page") pageNo: Int
+    ): Vehicles
 
     @GET("planets/")
-    suspend fun getPlanets(): Planets
+    suspend fun getPlanets(
+        @Query("page") pageNo: Int
+    ): Planets
 
     @GET("species/")
-    suspend fun getSpecies(): Species
+    suspend fun getSpecies(
+        @Query("page") pageNo: Int
+    ): Species
 
     @GET("starships/")
-    suspend fun getStarships(): StarShips
+    suspend fun getStarships(
+        @Query("page") pageNo: Int
+    ): StarShips
 
 }

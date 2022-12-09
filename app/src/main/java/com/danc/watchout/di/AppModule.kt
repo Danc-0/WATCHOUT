@@ -3,10 +3,13 @@ package com.danc.watchout.di
 import com.danc.watchout.data.remote.StarWarsAPI
 import com.danc.watchout.data.repository.FilmRepositoryImpl
 import com.danc.watchout.data.repository.PeopleRepositoryImpl
+import com.danc.watchout.data.repository.VehicleRepositoryImpl
 import com.danc.watchout.domain.repository.FilmRepository
 import com.danc.watchout.domain.repository.PeopleRepository
+import com.danc.watchout.domain.repository.VehicleRepository
 import com.danc.watchout.domain.usecases.PeoplesUseCase
 import com.danc.watchout.domain.usecases.SpecificFilmUseCase
+import com.danc.watchout.domain.usecases.VehicleUseCase
 import com.danc.watchout.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -22,17 +25,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @Singleton
-    fun providePeoplesUseCase(peopleRepository: PeopleRepository): PeoplesUseCase {
-        return PeoplesUseCase(peopleRepository)
-    }
-
-    @Provides
-    @Singleton
-    fun provideSpecificFilmUSeCase(peopleRepository: PeopleRepository): SpecificFilmUseCase {
-        return SpecificFilmUseCase(peopleRepository)
-    }
 
     @Provides
     @Singleton
@@ -44,6 +36,12 @@ object AppModule {
     @Singleton
     fun provideFilmsRepository(starWarsAPI: StarWarsAPI): FilmRepository {
         return FilmRepositoryImpl(starWarsAPI)
+    }
+
+    @Provides
+    @Singleton
+    fun provideVehicleRepository(starWarsAPI: StarWarsAPI): VehicleRepository {
+        return VehicleRepositoryImpl(starWarsAPI)
     }
 
     private val httpLoggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

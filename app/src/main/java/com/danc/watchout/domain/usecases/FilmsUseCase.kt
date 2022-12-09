@@ -6,8 +6,8 @@ import javax.inject.Inject
 
 class FilmsUseCase @Inject constructor(private val filmRepository: FilmRepository) {
 
-    suspend operator fun invoke(): Films {
-        return filmRepository.getAllFilms()
+    suspend operator fun invoke(pageNumber: Int): Films {
+        return filmRepository.getAllFilms(pageNumber)
     }
 
 }

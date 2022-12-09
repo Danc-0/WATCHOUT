@@ -4,6 +4,6 @@ import com.danc.watchout.domain.models.Films
 
 interface FilmRepository {
 
-    suspend fun getAllFilms(): Films
+    suspend fun getAllFilms(pageNumber: Int): Films
 
 }
