@@ -18,16 +18,16 @@ interface StarWarsAPI {
     @GET
     suspend fun getSpecificFilms(@Url filmUrl: String): FilmsResult
 
-    @GET("/vehicles/")
+    @GET("vehicles/")
     suspend fun getVehicles(): Vehicles
 
-    @GET("/planets/")
+    @GET("planets/")
     suspend fun getPlanets(): Planets
 
-    @GET("/species/")
+    @GET("species/")
     suspend fun getSpecies(): Species
 
-    @GET("/starships/")
+    @GET("starships/")
     suspend fun getStarships(): StarShips
 
 }
