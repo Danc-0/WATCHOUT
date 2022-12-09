@@ -34,7 +34,7 @@ fun MainNavigationGraph(
         }
 
         composable(route = MainAppRoutes.PeopleDetails.route) {
-            PeopleStarDetails(peopleViewModel)
+            PeopleStarDetails(peopleViewModel,  navController)
         }
     }
 }

@@ -23,5 +23,4 @@ The app is built with clean Architecture in mind leveraging structural pattern o
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) - A design pattern that help in handling concurrency simplifying how asynchronously is done.
 - [Kotlin Flow](https://developer.android.com/kotlin/flow) - In coroutines, a flow is a type to sequentially emit multiple values.
 - [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - A dependency injection library for Android, based on Annotations
-- [Coil](https://coil-kt.github.io/coil/compose/)- A simple image loading library for Android with Kotlin Coroutines.
 - [Timber](https://github.com/JakeWharton/timber)- A logging library.

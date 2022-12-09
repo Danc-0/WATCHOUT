@@ -1,20 +1,28 @@
 package com.danc.watchout.presentation.screens
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.danc.watchout.R
 import com.danc.watchout.domain.models.PeoplesResult
 import com.danc.watchout.domain.models.SpecificFilmResult
 import com.danc.watchout.presentation.viewmodels.PeopleViewModel
@@ -23,7 +31,8 @@ import kotlin.random.Random
 
 @Composable
 fun PeopleStarDetails(
-    viewModel: PeopleViewModel
+    viewModel: PeopleViewModel,
+    navController: NavController
 ) {
     val peopleDetails = viewModel.peopleResult
     val specificFilmViewModel: SpecificFilmViewModel = hiltViewModel()
@@ -32,20 +41,46 @@ fun PeopleStarDetails(
 
     val scaffoldState = rememberScaffoldState()
     Scaffold(
-        scaffoldState = scaffoldState
-    ) {
-        Column(
-            modifier = Modifier.padding(top = it.calculateTopPadding(), start = 10.dp, end = 10.dp)
-        ) {
-            DetailsCard(peopleDetails.value!!)
-            if (viewState.value.specificFilm != null) {
-                FilmCard(
-                    viewState.value.specificFilm
-                )
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopBar(navController)
+        },
+        content = {
+            Column(
+                Modifier.padding(it)
+            ) {
+                DetailsCard(peopleDetails.value!!)
+                if (viewState.value.specificFilm != null) {
+                    FilmCard(
+                        viewState.value.specificFilm
+                    )
+                }
             }
         }
-    }
+    )
+}
 
+@Composable
+fun TopBar(navController: NavController) {
+    Row(
+        modifier = Modifier
+            .padding(bottom = 10.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically,
+        content = {
+            IconButton(onClick = {
+                navController.popBackStack()
+            }) {
+                Icon(Icons.Filled.ArrowBack, contentDescription = "Back Arrow")
+            }
+            Text(
+                text = "Character Details", style = TextStyle(
+                    fontWeight = FontWeight.Bold
+                )
+            )
+        },
+    )
 }
 
 @Composable
@@ -53,7 +88,7 @@ fun DetailsCard(peopleDetails: PeoplesResult) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(start = 15.dp, end = 15.dp),
         elevation = 20.dp,
         backgroundColor = MaterialTheme.colors.onBackground,
         shape = RoundedCornerShape(10.dp)
@@ -163,7 +198,6 @@ fun FilmCard(
             text = "Films",
             style = TextStyle(
                 color = MaterialTheme.colors.onBackground,
-                fontSize = 15.sp,
                 fontWeight = FontWeight.Bold
             )
         )
@@ -178,13 +212,13 @@ fun FilmCard(
 
 @Composable
 fun FilmItem(filmTitle: String?, filmDescription: String?) {
-    val randomColor = Color(Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
-    Card(
+    Box(
         modifier = Modifier
-            .padding(5.dp),
-        elevation = 30.dp,
-        backgroundColor = randomColor,
-        shape = RoundedCornerShape(15.dp)
+            .padding(5.dp)
+            .border(
+                border = BorderStroke(width = 1.dp, color = MaterialTheme.colors.onSurface),
+                shape = RoundedCornerShape(10.dp)
+            ),
     ) {
         Column(
             modifier = Modifier.padding(10.dp)
