@@ -45,7 +45,7 @@ fun VehicleScreen(navController: NavController) {
                             )
                         )
                         Text(
-                            text = "Try not. Do or do not. There is no try",
+                            text = "A dream without ambitions is like a Car without Gas",
                             style = TextStyle(
                                 color = MaterialTheme.colors.onBackground
                             )
@@ -86,3 +86,4 @@ fun VehicleScreen(navController: NavController) {
         }
     )
 }
+
