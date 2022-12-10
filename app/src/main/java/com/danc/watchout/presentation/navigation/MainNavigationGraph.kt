@@ -28,6 +28,10 @@ fun MainNavigationGraph(
         composable(route = BottomNavRoutes.Vehicle.route) {
             VehicleScreen(navController = navController)
         }
+        
+        composable(route = BottomNavRoutes.Planets.route) {
+            PlanetsScreen(navController = navController)
+        }
 
         composable(route = BottomNavRoutes.StarShip.route) {
             StarShipScreen(navController = navController)

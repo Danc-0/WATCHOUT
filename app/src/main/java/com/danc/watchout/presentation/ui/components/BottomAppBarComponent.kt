@@ -32,6 +32,7 @@ fun BottomAppBarComponent(
         BottomNavRoutes.Home,
         BottomNavRoutes.Film,
         BottomNavRoutes.Vehicle,
+        BottomNavRoutes.Planets,
         BottomNavRoutes.StarShip,
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -41,7 +42,7 @@ fun BottomAppBarComponent(
         modifier = modifier
             .height(40.dp)
             .fillMaxSize()
-            .padding(start = 10.dp, end = 10.dp),
+            .padding(start = 5.dp, end = 5.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -82,15 +83,15 @@ fun RowScope.SingleBottomAppItem(
     ) {
         Row(
             modifier = Modifier
-                .padding(start = 20.dp, top = 8.dp, end = 20.dp, bottom = 8.dp),
+                .padding(start = 10.dp, top = 8.dp, end = 10.dp, bottom = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Icon(
                 painter = painterResource(id = if (selected) bottomNavRoutes.icon_focused else bottomNavRoutes.icon),
                 contentDescription = "icon",
                 tint = contentColor,
-                modifier = Modifier.padding(end = 15.dp)
+                modifier = Modifier.padding(end = 10.dp)
             )
             AnimatedVisibility(visible = selected) {
                 Text(

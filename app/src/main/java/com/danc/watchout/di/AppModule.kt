@@ -1,12 +1,8 @@
 package com.danc.watchout.di
 
 import com.danc.watchout.data.remote.StarWarsAPI
-import com.danc.watchout.data.repository.FilmRepositoryImpl
-import com.danc.watchout.data.repository.PeopleRepositoryImpl
-import com.danc.watchout.data.repository.VehicleRepositoryImpl
-import com.danc.watchout.domain.repository.FilmRepository
-import com.danc.watchout.domain.repository.PeopleRepository
-import com.danc.watchout.domain.repository.VehicleRepository
+import com.danc.watchout.data.repository.*
+import com.danc.watchout.domain.repository.*
 import com.danc.watchout.domain.usecases.PeoplesUseCase
 import com.danc.watchout.domain.usecases.SpecificFilmUseCase
 import com.danc.watchout.domain.usecases.VehicleUseCase
@@ -42,6 +38,18 @@ object AppModule {
     @Singleton
     fun provideVehicleRepository(starWarsAPI: StarWarsAPI): VehicleRepository {
         return VehicleRepositoryImpl(starWarsAPI)
+    }
+
+    @Provides
+    @Singleton
+    fun providePlanetRepository(starWarsAPI: StarWarsAPI): PlanetsRepository {
+        return PlanetsRepositoryImpl(starWarsAPI)
+    }
+
+    @Provides
+    @Singleton
+    fun provideStarShipsRepository(starWarsAPI: StarWarsAPI): StarShipsRepository {
+        return StarShipRepositoryImpl(starWarsAPI)
     }
 
     private val httpLoggingInterceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

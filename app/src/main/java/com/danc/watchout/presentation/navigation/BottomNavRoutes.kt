@@ -8,6 +8,7 @@ sealed class BottomNavRoutes(
     val icon: Int,
     val icon_focused: Int
     ) {
+
     object Splash : BottomNavRoutes(
         route = "splash_screen",
         title = "Splash Screen",
@@ -34,6 +35,13 @@ sealed class BottomNavRoutes(
         title = "Vehicle",
         icon = R.drawable.vehicle,
         icon_focused = R.drawable.vehicle
+    )
+
+    object Planets : BottomNavRoutes(
+        route = "planets_screen",
+        title = "Planets",
+        icon = R.drawable.planets,
+        icon_focused = R.drawable.planets
     )
 
     object StarShip : BottomNavRoutes(

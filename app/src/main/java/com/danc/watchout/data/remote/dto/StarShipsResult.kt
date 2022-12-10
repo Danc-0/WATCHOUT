@@ -1,5 +1,7 @@
 package com.danc.watchout.data.remote.dto
 
+import com.danc.watchout.domain.models.StarShipsResult
+
 data class StarShipsResult(
     val MGLT: String,
     val cargo_capacity: String,
@@ -19,4 +21,24 @@ data class StarShipsResult(
     val pilots: List<String>,
     val starship_class: String,
     val url: String
-)
+) {
+    fun toStarShipResult(): StarShipsResult {
+        return StarShipsResult(
+            MGLT,
+            cargo_capacity,
+            consumables,
+            cost_in_credits,
+            crew,
+            films,
+            hyperdrive_rating,
+            length,
+            manufacturer,
+            max_atmosphering_speed,
+            model,
+            name,
+            passengers,
+            pilots,
+            starship_class
+        )
+    }
+}
