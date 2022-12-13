@@ -1,4 +1,23 @@
-# WATCHOUT
+<h1 align="center"> WATCHOUT </h1></br>
+
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=21"><img alt="MINIMUM API LEVEL" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+</p>
+
+<br>
+<img src="/previews/preview0.jpg" alt="drawing" width="270px">
+<img src="/previews/preview1.jpg" alt="drawing" width="270px">
+<img src="/previews/preview2.jpg" alt="drawing" width="270px">
+<img src="/previews/preview3.jpg" alt="drawing" width="270px"></br>
+</p>
+
+<br>
+<img src="/previews/preview4.jpg" alt="drawing" width="270px">
+<img src="/previews/preview5.jpg" alt="drawing" width="270px">
+<img src="/previews/preview6.jpg" alt="drawing" width="270px">
+<img src="/previews/preview7.jpg" alt="drawing" width="270px"></br>
+</p>
+
 A jetpack compose App consuming the STAR WARS API(Swapi) to help provide information about various aspects of STAR WARS
 
 The purpose of this repository is to demonstrate below:
