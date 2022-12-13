@@ -4,18 +4,18 @@
   <a href="https://android-arsenal.com/api?level=21"><img alt="MINIMUM API LEVEL" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
 </p>
 
-<br>
-<img src="/previews/preview0.jpg" alt="drawing" width="270px">
-<img src="/previews/preview1.jpg" alt="drawing" width="270px">
-<img src="/previews/preview2.jpg" alt="drawing" width="270px">
-<img src="/previews/preview3.jpg" alt="drawing" width="270px"></br>
+<p>
+<img src="/previews/preview0.jpg" alt="drawing" width="220px">
+<img src="/previews/preview1.jpg" alt="drawing" width="220px">
+<img src="/previews/preview2.jpg" alt="drawing" width="220px">
+<img src="/previews/preview3.jpg" alt="drawing" width="220px">
 </p>
 
-<br>
-<img src="/previews/preview4.jpg" alt="drawing" width="270px">
-<img src="/previews/preview5.jpg" alt="drawing" width="270px">
-<img src="/previews/preview6.jpg" alt="drawing" width="270px">
-<img src="/previews/preview7.jpg" alt="drawing" width="270px"></br>
+<p>
+<img src="/previews/preview4.jpg" alt="drawing" width="220px">
+<img src="/previews/preview5.jpg" alt="drawing" width="220px">
+<img src="/previews/preview6.jpg" alt="drawing" width="220px">
+<img src="/previews/preview7.jpg" alt="drawing" width="220px">
 </p>
 
 A jetpack compose App consuming the STAR WARS API(Swapi) to help provide information about various aspects of STAR WARS
