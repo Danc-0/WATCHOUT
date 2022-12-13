@@ -3,8 +3,6 @@ w
 Gapp/src/main/java/com/danc/watchout/domain/models/SpecificFilmResult.kt,6\f\6f71c40e640103bc0428bad76ba14b0666b7ffcc
 r
 Bapp/src/main/java/com/danc/watchout/domain/models/PeoplesResult.kt,d\6\d61c9dfb96c2a216e727ea9640b4eab7c35ac614
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 }
 Mapp/src/main/java/com/danc/watchout/presentation/screens/PeopleStarDetails.kt,2\5\25df83845a138cf49698c0f08a68c33fa653c750
 y
@@ -85,8 +83,6 @@ w
 Gapp/src/main/java/com/danc/watchout/domain/usecases/StarShipsUseCase.kt,d\5\d500931a71c1b442feb3962f774dd88015986c61
 }
 Mapp/src/main/java/com/danc/watchout/data/repository/StarShipRepositoryImpl.kt,d\2\d24141c3ed820b092a1fc3aff0bda9b8edfb1321
-z
-Japp/src/main/java/com/danc/watchout/presentation/screens/StarShipScreen.kt,9\d\9d7608d22933f77b71fc4b33edfd856141771021
 ~
 Napp/src/main/java/com/danc/watchout/presentation/navigation/BottomNavRoutes.kt,f\b\fb4f8b087ef9d775ad8ef6f867607b541cff32d1
 Ç
@@ -99,8 +95,6 @@ p
 @app/src/main/java/com/danc/watchout/presentation/MainActivity.kt,9\5\95d8d3c99d8ff636a4e1df39f3ad039b0922d239
 á
 Wapp/src/main/java/com/danc/watchout/presentation/ui/components/BottomAppBarComponent.kt,a\8\a8d6197cb5d60d6f502f8201a46340364d670fd1
-y
-Iapp/src/main/java/com/danc/watchout/presentation/screens/PlanetsScreen.kt,7\6\76b43bd1acda615949e3b7aa26208f425d22b203
 Å
 Qapp/src/main/java/com/danc/watchout/presentation/viewmodels/StarShipsViewModel.kt,6\c\6c4b413161fa014ec7cc64f80cacdfd9c5f7ffb4
 p

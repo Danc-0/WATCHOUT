@@ -6,7 +6,11 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.paging.LoadState
@@ -31,11 +35,36 @@ fun StarShipScreen(navController: NavController) {
                 modifier = Modifier.padding(10.dp)
             ) {
 
+                Text(
+                    text = "Star Ships",
+                    style = TextStyle(
+                        color = MaterialTheme.colors.onSecondary,
+                        fontSize = 35.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+                Text(
+                    text = "A dream of star ships flying around the orbit.",
+                    style = TextStyle(
+                        color = MaterialTheme.colors.onBackground
+                    )
+                )
+
+                Spacer(modifier = Modifier.height(5.dp))
+
                 LazyColumn(
                     content = {
-                        items(starShipPager.itemCount) { item ->
-                            val starShip = starShipPager[item]
-                            Text(text = starShip.toString(), color = MaterialTheme.colors.primary)
+
+                        item {
+                            Text(
+                                text = "Still under development!!",
+                                modifier = Modifier.fillMaxWidth()
+                                    .align(Alignment.CenterHorizontally),
+                                style = TextStyle(
+                                    fontFamily = FontFamily.SansSerif,
+                                    color = MaterialTheme.colors.primary
+                                )
+                            )
                         }
 
                         if (starShipPager.loadState.append == LoadState.Loading){
