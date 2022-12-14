@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://android-arsenal.com/api?level=21"><img alt="MINIMUM API LEVEL" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://github.com/Danc-0"><img alt="Github Profile" src="https://img.shields.io/badge/Github-Danc--0-blue"/></a>
 </p>
 
 <p>
@@ -18,7 +19,7 @@
 <img src="/previews/preview7.jpg" alt="drawing" width="220px">
 </p>
 
-A jetpack compose App consuming the STAR WARS API(Swapi) to help provide information about various aspects of STAR WARS
+A jetpack compose App consuming the [STAR WARS API(Swapi)](https://swapi.py4e.com/) help provide information about various aspects of STAR WARS
 
 The purpose of this repository is to demonstrate below:
   - Working with the Star Wars API.
