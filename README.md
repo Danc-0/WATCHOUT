@@ -6,17 +6,17 @@
 </p>
 
 <p>
-<img src="/previews/preview0.jpg" alt="drawing" width="220px">
-<img src="/previews/preview1.jpg" alt="drawing" width="220px">
-<img src="/previews/preview2.jpg" alt="drawing" width="220px">
-<img src="/previews/preview3.jpg" alt="drawing" width="220px">
+<img src="/previews/preview0.jpg" alt="drawing" width="210px">
+<img src="/previews/preview1.jpg" alt="drawing" width="210px">
+<img src="/previews/preview2.jpg" alt="drawing" width="210px">
+<img src="/previews/preview3.jpg" alt="drawing" width="210px">
 </p>
 
 <p>
-<img src="/previews/preview4.jpg" alt="drawing" width="220px">
-<img src="/previews/preview5.jpg" alt="drawing" width="220px">
-<img src="/previews/preview6.jpg" alt="drawing" width="220px">
-<img src="/previews/preview7.jpg" alt="drawing" width="220px">
+<img src="/previews/preview4.jpg" alt="drawing" width="210px">
+<img src="/previews/preview5.jpg" alt="drawing" width="210px">
+<img src="/previews/preview6.jpg" alt="drawing" width="210px">
+<img src="/previews/preview7.jpg" alt="drawing" width="210px">
 </p>
 
 A jetpack compose App consuming the [STAR WARS API(Swapi)](https://swapi.py4e.com/) help provide information about various aspects of STAR WARS
